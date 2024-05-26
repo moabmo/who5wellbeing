@@ -62,18 +62,18 @@ body {
 
 .submit-button {
   margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 1%;
+  font-size: 1.2rem;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  background-color: #4682B4; /* Sky blue */
+  background-color: #00ad65; /* Sky blue */
   color: white;
   transition: background-color 0.3s ease;
 }
 
 .submit-button:hover {
-  background-color: #00ad65; /* Darker blue */
+  background-color: #0b7e4e; /* Darker blue */
 }
 
 .result-container {
@@ -101,18 +101,18 @@ body {
 }
 
 .restart-button {
-  padding: 10px 20px;
+  padding: 1%;
   font-size: 16px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  background-color: #4682B4; /* Sky blue */
+  background-color: #00ad65; /* Sky blue */
   color: white;
   transition: background-color 0.3s ease;
 }
 
 .restart-button:hover {
-  background-color: #00ad65; /* Darker blue */
+  background-color: #0b7e4e; /* Darker blue */
 }
 
 .footer {

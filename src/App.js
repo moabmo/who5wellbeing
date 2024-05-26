@@ -52,10 +52,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>WHO-5 Well-being Index: Rate Your Well-being Over the Past Two Weeks</h1>
+        <h1>WHO-5 Well-being Index</h1>
         {!showResult ? (
           <div className="question-container">
-            <p className="instruction">Please select an answer for each question depending :</p>
+            <p className="instruction">Rate Your Well-being Over the Past Two Weeks :</p>
             {questions.map((question, index) => (
               <div key={index} className="question">
                 <p className="question-text">{question}</p>
