@@ -163,7 +163,7 @@ function App() {
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
             <FaInstagram size={30} />
           </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/abiud-m-59430b17a/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin size={30} />
           </a>
           <a href="https://www.github.com/moabmo" target="_blank" rel="noopener noreferrer">
