@@ -1,6 +1,8 @@
 // App.js
 import React, { useState } from 'react';
 import './App.css';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+
 
 const questions = [
   "I have felt cheerful and in good spirits?",
@@ -139,9 +141,9 @@ function App() {
             {getExplanation(calculateScore()).message}
             </p>
                <hr/>
-              <ul className="recommendation-list">
+              <p className="recommendation-list">
                 {renderRecommendations(getExplanation(calculateScore()).advice)}
-              </ul>
+              </p>
             </div>
             <button className="restart-button" onClick={restartQuiz}>Restart Quiz</button>
           </div>
@@ -149,6 +151,20 @@ function App() {
       </header>
       <footer className="footer">
         <p>&copy; 2024 moabmo</p>
+        <div className="social-icons">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <FaFacebook size={30} />
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+            <FaTwitter size={30} />
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <FaInstagram size={30} />
+          </a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin size={30} />
+          </a>
+        </div>
       </footer>
     </div>
   );

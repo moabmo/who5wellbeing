@@ -5,6 +5,7 @@ body {
   font-family: 'Comfortaa', cursive;
   margin: 0;
   padding: 0;
+  /* font-size: 125%; */
 }
 
 .App {
@@ -22,7 +23,7 @@ body {
 }
 
 .question-container {
-  background-color: #87CEEB;
+  background-image: linear-gradient(to right, #4682B4, #87CEEB); /* Gradient background color */
   padding: 20px;
   border-radius: 10px;
   margin-top: 50px;
@@ -49,6 +50,7 @@ body {
   border-radius: 5px;
   background-color: #4682B4; /* Sky blue */
   color: white;
+  font-size: 200%;
   transition: background-color 0.3s ease;
 }
 
@@ -67,9 +69,10 @@ body {
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  background-color: #00ad65; /* Sky blue */
+  background-image: linear-gradient(45deg, #00ad65, #008040); /* Gradient from light to dark green */
   color: white;
   transition: background-color 0.3s ease;
+  font-size: 120%;
 }
 
 .submit-button:hover {
@@ -77,7 +80,7 @@ body {
 }
 
 .result-container {
-  background-color: #87CEEB;
+  background-image: linear-gradient(to right, #4682B4, #87CEEB); /* Gradient background color */
   padding: 20px;
   border-radius: 10px;
   margin-top: 50px;
@@ -94,7 +97,20 @@ body {
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 20px;
+  display: inline-block;
+  position: relative;
+  width: 1em; /* Width of 1em (equal to font-size) */
+  height: 1em; /* Height of 1em (equal to font-size) */
+  background-image: linear-gradient(45deg, #00ad65, #008040); /* Gradient from light to dark green */
+  width: auto;
+  height: auto;
+  padding: 0.7%;
+  border-radius: 50%;
+  text-align: center; /* Center the text horizontally */
+  line-height: 1em; /* Vertically center the text */
 }
+
+
 
 .explanation {
   margin-top: 20px;
@@ -102,13 +118,14 @@ body {
 
 .restart-button {
   padding: 10px 20px;
-  font-size: 16px;
+  /* font-size: 16px; */
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  background-color: #00ad65; /* Sky blue */
+  background-image: linear-gradient(45deg, #00ad65, #008040); /* Gradient from light to dark green */
   color: white;
   transition: background-color 0.3s ease;
+  font-size: 120%;
 }
 
 .restart-button:hover {
@@ -133,4 +150,25 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.social-icons a {
+  color: white;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #87CEEB;
+}
+
+.recommendation-list {
+  display: inline-block; /* Ensure the background matches the text width */
+  background-image: linear-gradient(to right, #4682B4, #4682B4); /* Gradient background color */
+  border-radius: 10px;
+  color: white; /* Set text color to contrast with background */
+  font-weight: bold;
+  /* list-style-type: none; Remove bullet points */
+  padding: 1%;
+  text-align: left;
 }
