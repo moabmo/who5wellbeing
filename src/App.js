@@ -1,7 +1,7 @@
 // App.js
 import React, { useState } from 'react';
 import './App.css';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 
 const questions = [
@@ -152,7 +152,7 @@ function App() {
       <footer className="footer">
         <p>&copy; 2024 moabmo</p>
         <div className="social-icons">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/abiud.mongare" target="_blank" rel="noopener noreferrer">
             <FaFacebook size={30} />
           </a>
           <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
@@ -162,6 +162,9 @@ function App() {
             <FaInstagram size={30} />
           </a>
           <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin size={30} />
+          </a>
+          <a href="https://www.github.com/moabmo" target="_blank" rel="noopener noreferrer">
             <FaLinkedin size={30} />
           </a>
         </div>
