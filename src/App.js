@@ -138,6 +138,7 @@ function App() {
             <p style={{ color: 'green', fontSize: '150%', fontWeight: 'bolder' }}>
             {getExplanation(calculateScore()).message}
             </p>
+               <hr/>
               <ul className="recommendation-list">
                 {renderRecommendations(getExplanation(calculateScore()).advice)}
               </ul>
