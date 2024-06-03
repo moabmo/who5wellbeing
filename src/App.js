@@ -3,12 +3,44 @@ import React, { useState } from 'react';
 import './App.css';
 
 const questions = [
-  "I have felt cheerful and in good spirits.",
-  "I have felt calm and relaxed.",
-  "I have felt active and vigorous.",
-  "I woke up feeling fresh and rested.",
-  "My daily life has been filled with things that interest me."
+  "I have felt cheerful and in good spirits?",
+  "I have felt calm and relaxed?",
+  "I have felt active and vigorous?",
+  "I woke up feeling fresh and rested?",
+  "My daily life has been filled with things that interest me?"
 ];
+
+const recommendations = {
+  veryPoor: [
+    "Seek immediate professional help from a mental health expert.",
+    "Reach out to trusted friends or family members for support.",
+    "Consider joining a support group for emotional assistance."
+  ],
+  poor: [
+    "Consult with a healthcare professional for personalized advice.",
+    "Engage in regular physical exercise.",
+    "Practice mindfulness or relaxation techniques.",
+    "Establish a regular sleep routine."
+  ],
+  moderate: [
+    "Continue practicing self-care activities such as exercise and relaxation.",
+    "Maintain social connections and spend time with loved ones.",
+    "Set aside time for hobbies and activities you enjoy.",
+    "Consider keeping a journal to reflect on positive experiences."
+  ],
+  good: [
+    "Keep up the good work with your current healthy habits.",
+    "Explore new activities or hobbies that interest you.",
+    "Share your well-being strategies with friends and family.",
+    "Continue to monitor your well-being and adjust as needed."
+  ],
+  excellent: [
+    "Continue your great habits and maintain your current lifestyle.",
+    "Consider mentoring others on well-being practices.",
+    "Explore further personal growth opportunities.",
+    "Stay proactive in monitoring and maintaining your well-being."
+  ]
+};
 
 function App() {
   const [answers, setAnswers] = useState(Array(5).fill(null));
@@ -26,17 +58,35 @@ function App() {
   };
 
   const getExplanation = (score) => {
-    if (score <= 50) {
-      return "Your well-being score indicates poor well-being. We recommend consulting with a healthcare professional for personalized advice and support.";
+    if (score <= 20) {
+      return {
+        message: "Your well-being score indicates very poor well-being!",
+        advice: recommendations.veryPoor
+      };
+    } else if (score <= 50) {
+      return {
+        message: "Your well-being score indicates poor well-being!",
+        advice: recommendations.poor
+      };
     } else if (score <= 75) {
-      return "Your well-being score indicates moderate well-being. Focus on self-care activities such as exercise, relaxation techniques, and social connections.";
+      return {
+        message: "Your well-being score indicates moderate well-being!",
+        advice: recommendations.moderate
+      };
+    } else if (score <= 95) {
+      return {
+        message: "Your well-being score indicates good well-being!",
+        advice: recommendations.good
+      };
     } else {
-      return "Your well-being score indicates good well-being. Keep up the good work and continue practicing healthy habits for maintaining well-being.";
+      return {
+        message: "Your well-being score indicates excellent well-being!",
+        advice: recommendations.excellent
+      };
     }
   };
 
   const handleSubmit = () => {
-    // Check if all answers are filled
     if (answers.includes(null)) {
       alert("Please answer all questions before submitting.");
     } else {
@@ -49,18 +99,24 @@ function App() {
     setShowResult(false);
   };
 
+  const renderRecommendations = (advice) => {
+    return advice.map((recommendation, index) => (
+      <li key={index} className="recommendation-item">{recommendation}</li>
+    ));
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>WHO-5 Well-being Index</h1>
         {!showResult ? (
           <div className="question-container">
-            <p className="instruction">Rate Your Well-being Over the Past Two Weeks :</p>
+            <p className="instruction">Rate Your Well-being Over the Past Two Weeks:</p>
             {questions.map((question, index) => (
               <div key={index} className="question">
                 <p className="question-text">{question}</p>
                 <div className="answers">
-                  {[1, 2, 3, 4, 5].map((value) => (
+                  {[0, 1, 2, 3, 4, 5].map((value) => (
                     <button
                       key={value}
                       className={`answer-button ${answers[index] === value ? 'selected' : ''}`}
@@ -78,7 +134,14 @@ function App() {
           <div className="result-container">
             <p className="result-text">Your well-being score is:</p>
             <p className="score">{calculateScore()}</p>
-            <p className="explanation">{getExplanation(calculateScore())}</p>
+            <div className="explanation">
+            <p style={{ color: 'green', fontSize: '150%', fontWeight: 'bolder' }}>
+            {getExplanation(calculateScore()).message}
+            </p>
+              <ul className="recommendation-list">
+                {renderRecommendations(getExplanation(calculateScore()).advice)}
+              </ul>
+            </div>
             <button className="restart-button" onClick={restartQuiz}>Restart Quiz</button>
           </div>
         )}
