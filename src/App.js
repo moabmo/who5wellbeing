@@ -165,7 +165,7 @@ function App() {
             <FaLinkedin size={30} />
           </a>
           <a href="https://www.github.com/moabmo" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin size={30} />
+            <FaGithub size={30} />
           </a>
         </div>
       </footer>
