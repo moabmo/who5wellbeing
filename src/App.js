@@ -1,10 +1,9 @@
-// App.js
 import React, { useState } from 'react';
 import './App.css';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { BsGlobe } from 'react-icons/bs';
-
-
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 const questions = [
   "I have felt cheerful and in good spirits?",
@@ -109,6 +108,36 @@ function App() {
     ));
   };
 
+  const generatePDF = () => {
+    const doc = new jsPDF();
+    const score = calculateScore();
+    const explanation = getExplanation(score);
+
+    doc.setFontSize(20);
+    doc.text("WHO-5 Well-being Index Result", 20, 20);
+
+    doc.setFontSize(14);
+    doc.text(`Your well-being score is: ${score}`, 20, 40);
+
+    doc.setFontSize(12);
+    doc.setTextColor(34, 139, 34); // Green color
+    doc.text(explanation.message, 20, 60);
+
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0); // Black color
+    doc.text("Recommendations:", 20, 80);
+    explanation.advice.forEach((rec, i) => {
+      doc.text(`${i + 1}. ${rec}`, 20, 90 + (i * 10));
+    });
+
+    doc.setFontSize(10);
+    doc.setTextColor(150, 150, 150); // Grey color
+    doc.text("© 2024 moabmo", 20, 150);
+    doc.text("Contact: 0714318143 for more", 20, 160);
+
+    doc.save("well-being-result.pdf");
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -139,15 +168,20 @@ function App() {
             <p className="result-text">Your well-being score is:</p>
             <p className="score">{calculateScore()}</p>
             <div className="explanation">
-            <p style={{ color: 'green', fontSize: '150%', fontWeight: 'bolder' }}>
-            {getExplanation(calculateScore()).message}
-            </p>
-               <hr/>
-              <p className="recommendation-list">
-                {renderRecommendations(getExplanation(calculateScore()).advice)}
+              <p style={{ color: 'green', fontSize: '150%', fontWeight: 'bolder' }}>
+                {getExplanation(calculateScore()).message}
               </p>
+              <hr/>
+              <ul className="recommendation-list">
+                {renderRecommendations(getExplanation(calculateScore()).advice)}
+              </ul>
             </div>
-            <button className="restart-button" onClick={restartQuiz}>Restart Quiz</button>
+            <button className="download-button" onClick={generatePDF} style={{ margin: '10px', padding: '10px 20px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '120%' }}>
+              Download results
+            </button>
+            <button className="restart-button" onClick={restartQuiz} style={{ margin: '10px', padding: '10px 20px', backgroundColor: '#f44336', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+              Restart Quiz
+            </button>
           </div>
         )}
       </header>
@@ -170,9 +204,8 @@ function App() {
             <FaGithub size={30} />
           </a>
           <a href="" target="_blank" rel="noopener noreferrer">
-          <BsGlobe size={30}/> {/* This is the website icon */}
+            <BsGlobe size={30}/> {/* This is the website icon */}
           </a>
-          
         </div>
       </footer>
     </div>
