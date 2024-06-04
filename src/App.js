@@ -169,7 +169,7 @@ function App() {
           <a href="https://www.github.com/moabmo" target="_blank" rel="noopener noreferrer">
             <FaGithub size={30} />
           </a>
-          <a href="https://monyoro.vercel.app" target="_blank" rel="noopener noreferrer">
+          <a href="" target="_blank" rel="noopener noreferrer">
           <BsGlobe size={30}/> {/* This is the website icon */}
           </a>
           
