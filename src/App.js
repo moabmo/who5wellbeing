@@ -186,7 +186,7 @@ function App() {
         )}
       </header>
       <footer className="footer">
-        <p>&copy; 2024 moabmo</p>
+        <p>&copy; 2025 moabmo</p>
         <div className="social-icons">
           <a href="https://www.facebook.com/abiud.mongare" target="_blank" rel="noopener noreferrer">
             <FaFacebook size={30} />
